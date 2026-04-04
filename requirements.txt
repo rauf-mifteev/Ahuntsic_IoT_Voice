@@ -1,0 +1,6 @@
+paho-mqtt
+SpeechRecognition
+PyAudio
+nltk
+gpiozero
+PyMySQL
