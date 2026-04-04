@@ -1,0 +1,2 @@
+-- db/schema.sql
+-- Rôle : Crée une base de données MariaDB pour la journalisation.
