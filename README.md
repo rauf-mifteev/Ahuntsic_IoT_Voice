@@ -94,12 +94,12 @@ Journalisation (envoyée vers la base de données) :
     python3 -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
     ```
     
-3. Démarrer les services et initialiser MariaDB
+3. Démarrer les services Mosquitto, MariaDB et initialiser la BD
 
     ```
     sudo systemctl enable --now mosquitto
     sudo systemctl enable --now mariadb
-    sudo mariadb < db/schema_projet2.sql
+    sudo mariadb < db/schema.sql
     ```
     
 4. Identifier l'index du microphone USB
