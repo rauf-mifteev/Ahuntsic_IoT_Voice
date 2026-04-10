@@ -78,37 +78,36 @@ Journalisation (envoyée vers la base de données) :
 
 1. Cloner le dépôt et installer les dépendances système
 
-    ```
-    git clone https://github.com/rauf-mifteev/Ahuntsic_IoT_Voice
-    cd Ahuntsic_IoT_Voice
-    sudo apt update
-    sudo apt install -y python3-pyaudio flac python3-nltk espeak-ng mosquitto mosquitto-clients mariadb-server
-    ```
+```
+git clone https://github.com/rauf-mifteev/Ahuntsic_IoT_Voice
+cd Ahuntsic_IoT_Voice
+sudo apt update
+sudo apt install -y python3-pyaudio flac python3-nltk espeak-ng mosquitto mosquitto-clients mariadb-server
+```
     
 2. Créer l'environnement virtuel et installer les paquets Python
 
-    ```
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    python3 -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
-    ```
+```
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python3 -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
+```
     
 3. Démarrer les services Mosquitto, MariaDB et initialiser la BD
 
-    ```
-    sudo systemctl enable --now mosquitto
-    sudo systemctl enable --now mariadb
-    sudo mariadb < db/schema.sql
-    ```
+```
+sudo systemctl enable --now mosquitto
+sudo systemctl enable --now mariadb
+sudo mariadb < db/schema.sql
+```
     
 4. Identifier l'index du microphone USB
 
-    ```
-    python3 -c "import speech_recognition as sr;
-    print(list(enumerate(sr.Microphone.list_microphone_names())))"
-    ```
-    (Mettre à jour la variable MIC_INDEX dans src/assistant_vocal.py avec le bon numéro).
+```
+python3 -c "import speech_recognition as sr; print(list(enumerate(sr.Microphone.list_microphone_names())))"
+```
+(Mettre à jour la variable MIC_INDEX dans src/assistant_vocal.py avec le bon numéro).
 
 ## Exécution
 
